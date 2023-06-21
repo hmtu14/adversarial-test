@@ -14,6 +14,9 @@ setup(
     ],
     tests_require=[
         "unittest",
-    ]
+    ],
+    project_urls={
+        "GitHub": "https://github.com/hmtu14/adversarial-test"
+    }
     # license='MIT',
 )
