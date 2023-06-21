@@ -5,8 +5,8 @@ from sklearn.metrics import roc_auc_score, fbeta_score
 from catboost import CatBoostClassifier
 
 class AdversarialModel:
-    def __init__(self, model=CatBoostClassifier(iterations=400, verbose=False)) -> None:
-        self.model = model
+    def __init__(self, model=None) -> None:
+        self.model = model or CatBoostClassifier(iterations=400, verbose=False)
 
     def fit(
         self,
@@ -17,6 +17,12 @@ class AdversarialModel:
         cat_features=None,
         metrics=[(roc_auc_score,), (fbeta_score, {"beta": 0.5})],
     ):
+        # # Convert df to pandas dataframe
+        if type(df1) != pd.DataFrame:
+            df1 = pd.DataFrame(df1)
+        if type(df2) != pd.DataFrame:
+            df2 = pd.DataFrame(df2)
+
         data_adversarial = pd.concat(
             [
                 df1.assign(label=0),

@@ -1,8 +1,7 @@
 import unittest
 import numpy as np
 import pandas as pd
-from adversarial.adversarial_test import AdversarialModel
-from catboost import CatBoostClassifier
+from adversarial_test import AdversarialModel
 
 class TestAdversarialModel(unittest.TestCase):
     def setUp(self):

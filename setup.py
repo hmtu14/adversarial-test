@@ -7,7 +7,7 @@ long_description = (this_directory / "README.md").read_text()
 setup(
     name='adversarial-test',
     packages=find_packages(),
-    version='0.1.3',
+    version='0.1.4',
     description='Adversarial test for tabular data',
     long_description=long_description,
     long_description_content_type='text/markdown',
